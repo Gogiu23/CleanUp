@@ -1,18 +1,14 @@
-#!/bin/bash
-#Author Omar BOUYKOURNE
-#42login : obouykou
-
-echo -e "from: https://github.com/ombhd/Cleaner_42\n"
+#!/usr/local/bin/bash
 
 #banner
 echo -e	"\n"
-echo -e	" 		█▀▀ █▀▀ █░░ █▀▀ ▄▀█ █▄░█ "
-echo -e	" 		█▄▄ █▄▄ █▄▄ ██▄ █▀█ █░▀█ "
-echo -en "\n    	    	   By: "
-echo -e "\033[33mOMBHD\033[0m [𝒐𝒃𝒐𝒖𝒚𝒌𝒐𝒖]\n"
+echo -e	" 		█▀▀ █   █▀▀ ▄▀█ █▄░█ "
+echo -e	" 		█▄▄ █▄▄ ██▄ █▀█ █░▀█ "
+echo -en "\n    	    	By: "
+echo -e "\033[33m 🛀 [Gogiu23] 🧼 \033[0m\n"
 
 #calculating the current available storage
-Storage=$(df -h "$HOME" | grep "$HOME" | awk '{print($4)}' | tr 'i' 'B')
+Storage=$(df -h "$HOME" | sed -n '2p' | awk '{print($4)}' | tr 'i' 'B')
 if [ "$Storage" == "0BB" ];
 then
 	Storage="0B"
@@ -22,8 +18,8 @@ echo -e "\033[33m\n -- Available Storage Before Cleaning : || $Storage || --\033
 echo -e "\033[31m\n -- Cleaning ...\n\033[0m "
 
 #42 Caches
-/bin/rm -rf "$HOME"/Library/*.42* &>/dev/null
-/bin/rm -rf "$HOME"/*.42* &>/dev/null
+# /bin/rm -rf "$HOME"/Library/*.42* &>/dev/null
+# /bin/rm -rf "$HOME"/*.42* &>/dev/null
 /bin/rm -rf "$HOME"/.zcompdump* &>/dev/null
 /bin/rm -rf "$HOME"/.cocoapods.42_cache_bak* &>/dev/null
 
@@ -62,14 +58,14 @@ find "$HOME"/Desktop -name .DS_Store -depth -exec /bin/rm {} \; &>/dev/null
 /bin/rm -rf "$HOME"/Library/Application\ Support/Google/Chrome/Profile\ [0-9]/File\ System &>/dev/null
 
 #things related to pool (piscine)
-/bin/rm -rf "$HOME"/Desktop/Piscine\ Rules\ *.mp4
-/bin/rm -rf "$HOME"/Desktop/PLAY_ME.webloc
+# /bin/rm -rf "$HOME"/Desktop/Piscine\ Rules\ *.mp4
+# /bin/rm -rf "$HOME"/Desktop/PLAY_ME.webloc
 
 #things related to francinette
-/bin/rm -rf "$HOME"/francinette/temp
+# /bin/rm -rf "$HOME"/francinette/temp
 
 #calculating the new available storage after cleaning
-Storage=$(df -h "$HOME" | grep "$HOME" | awk '{print($4)}' | tr 'i' 'B')
+Storage=$(df -h "$HOME" | sed -n '2p' | awk '{print($4)}' | tr 'i' 'B')
 if [ "$Storage" == "0BB" ];
 then
 	Storage="0B"
@@ -77,6 +73,6 @@ fi
 
 echo -e "\033[32m -- Available Storage After Cleaning : || $Storage || --\n\033[0m"
 
-echo -e	"\n	       report any issues to me in:"
-echo -e	"		   GitHub   ~> \033[4;1;34mombhd\033[0m"
-echo -e	"	   	   42 Slack ~> \033[4;1;34mobouykou\033[0m\n"
+# echo -e	"\n	       report any issues to me in:"
+# echo -e	"		   GitHub   ~> \033[4;1;34mombhd\033[0m"
+# echo -e	"	   	   42 Slack ~> \033[4;1;34mobouykou\033[0m\n"
